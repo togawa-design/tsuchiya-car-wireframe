@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>②反響集約システム ヒアリングシート - ツチヤ自動車</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', sans-serif; background: #f0f2f5; color: #1a1a2e; }
+  .page { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
+  h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  h2 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; padding-left: 12px; border-left: 4px solid #7c83fd; }
+  .meta { font-size: 12px; color: #999; margin-bottom: 28px; display:flex; gap:16px; }
+  .lead { font-size: 13px; color: #555; line-height:1.7; margin-bottom: 24px; background:#fff; border-radius:12px; padding:16px 20px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .section { background: #fff; border-radius: 12px; padding: 22px 24px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .badge { display:inline-block; border-radius:10px; padding:1px 8px; font-size:10px; font-weight:700; color:#fff; margin-right:6px; vertical-align:middle; }
+  .badge-high { background:#ad1457; }
+  .badge-mid  { background:#1565c0; }
+  .badge-low  { background:#888; }
+  .q-row { display:flex; gap:16px; padding:14px 0; border-bottom:1px solid #eee; align-items:flex-start; }
+  .q-row:last-child { border-bottom:none; }
+  .q-num { width:34px; flex-shrink:0; font-weight:700; color:#7c83fd; font-size:13px; padding-top:1px; }
+  .q-body { flex:1; }
+  .q-text { font-size:13px; font-weight:600; margin-bottom:4px; }
+  .q-why { font-size:11px; color:#888; }
+  .q-answer { width:220px; flex-shrink:0; border:1px dashed #ccc; border-radius:6px; padding:8px 10px; font-size:11px; color:#aaa; background:#fafafa; }
+  .media-grid { display:flex; flex-wrap:wrap; gap:8px; margin: 8px 0 16px; }
+  .media-chip { background:#f0f2f5; border-radius:8px; padding:6px 12px; font-size:12px; color:#555; }
+  .media-chip.unknown { border:1px dashed #ccc; color:#aaa; }
+</style>
+</head>
+<body>
+
+<!-- Global Nav -->
+<div style="background:#1a1a2e;height:40px;display:flex;align-items:center;padding:0 20px;gap:24px;font-size:12px;overflow-x:auto;">
+  <span style="color:#7c83fd;font-weight:700;letter-spacing:0.5px;white-space:nowrap;">ツチヤ自動車 設計ドキュメント</span>
+  <a href="index.html"            style="color:#aaa;text-decoration:none;opacity:.7;white-space:nowrap;">🏠 プロジェクト概要</a>
+  <a href="hearing-app.html"      style="color:#aaa;text-decoration:none;opacity:.7;white-space:nowrap;">📱 ①アプリ ヒアリング</a>
+  <a href="hearing-inquiry.html"  style="color:#fff;text-decoration:none;border-bottom:2px solid #7c83fd;padding-bottom:2px;white-space:nowrap;">📥 ②反響集約 ヒアリング</a>
+  <a href="hearing-followup.html" style="color:#aaa;text-decoration:none;opacity:.7;white-space:nowrap;">🤝 ③顧客フォロー ヒアリング</a>
+</div>
+
+<div class="page">
+  <h1>②反響集約システム ヒアリングシート</h1>
+  <div class="meta">
+    <span>v0.1</span>
+    <span>2026-08-10</span>
+    <span>対象：カーセンサー・Goo-net等6媒体の問い合わせ一元管理（参考イメージ：RPM）</span>
+  </div>
+
+  <div class="lead">
+    <span class="badge badge-high">必須確認</span><span class="badge badge-mid">推奨確認</span><span class="badge badge-low">任意</span>
+    「RPM」は機能イメージの参考例であり、実システムとの連携は前提としない（[[project_tsuchiya_car]]で確認済み）。以下はゼロから構築する前提でのヒアリング項目。
+  </div>
+
+  <div class="section">
+    <h2>1. 対象メディア</h2>
+    <div class="media-grid">
+      <span class="media-chip">カーセンサー</span>
+      <span class="media-chip">Goo-net</span>
+      <span class="media-chip unknown">媒体3（未確認）</span>
+      <span class="media-chip unknown">媒体4（未確認）</span>
+      <span class="media-chip unknown">媒体5（未確認）</span>
+      <span class="media-chip unknown">媒体6（未確認）</span>
+    </div>
+    <div class="q-row"><div class="q-num">Q1</div><div class="q-body"><div class="q-text"><span class="badge badge-high">必須</span>カーセンサー・Goo-net以外の残り4媒体の名称は何か</div><div class="q-why">媒体ごとにデータ取得方式が異なるため、開発範囲の確定に必須</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q2</div><div class="q-body"><div class="q-text"><span class="badge badge-high">必須</span>各媒体からの反響は、API連携／メール転送／管理画面へのログインでの確認、のどの方式で受け取っているか</div><div class="q-why">方式によって開発難易度・連携コストが大きく変わる（API提供のない媒体はメール本文解析等の代替手段が必要）</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q3</div><div class="q-body"><div class="q-text"><span class="badge badge-mid">推奨</span>自社サイト・電話・来店等、媒体経由以外の問い合わせもこのシステムで一元管理したいか</div><div class="q-why">対象範囲が「6媒体のみ」か「全反響」かで設計が変わる</div></div><div class="q-answer">（回答欄）</div></div>
+  </div>
+
+  <div class="section">
+    <h2>2. データ項目・振り分け</h2>
+    <div class="q-row"><div class="q-num">Q4</div><div class="q-body"><div class="q-text"><span class="badge badge-high">必須</span>反響データとして管理したい項目（氏名・電話番号・車種・希望店舗・問い合わせ内容・流入媒体等）に不足はないか</div><div class="q-why">データモデル（テーブル定義）の土台になる</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q5</div><div class="q-body"><div class="q-text"><span class="badge badge-high">必須</span>反響の振り分けルールは何か（店舗別／担当者別／ラウンドロビン等）</div><div class="q-why">通知・アサイン機能の仕様に直結</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q6</div><div class="q-body"><div class="q-text"><span class="badge badge-mid">推奨</span>同一顧客が複数媒体から問い合わせた場合、名寄せ（重複統合）は必要か</div><div class="q-why">名寄せロジックの有無で開発規模が変わる</div></div><div class="q-answer">（回答欄）</div></div>
+  </div>
+
+  <div class="section">
+    <h2>3. 対応管理・通知</h2>
+    <div class="q-row"><div class="q-num">Q7</div><div class="q-body"><div class="q-text"><span class="badge badge-high">必須</span>対応状況のステータス項目（未対応／電話済み／来店予約／成約／失注 等）はどう定義したいか</div><div class="q-why">画面仕様・ステータス遷移の設計に必須</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q8</div><div class="q-body"><div class="q-text"><span class="badge badge-mid">推奨</span>新規反響発生時の通知方法（メール／LINE WORKS／Slack／SMS等）と通知先は誰か</div><div class="q-why">外部連携仕様書に反映する項目</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q9</div><div class="q-body"><div class="q-text"><span class="badge badge-low">任意</span>「反響から何分以内に一次架電する」等のSLA・対応期限ルールは既にあるか</div><div class="q-why">期限超過アラート機能の要否</div></div><div class="q-answer">（回答欄）</div></div>
+  </div>
+
+  <div class="section">
+    <h2>4. 既存運用・移行</h2>
+    <div class="q-row"><div class="q-num">Q10</div><div class="q-body"><div class="q-text"><span class="badge badge-high">必須</span>現在、反響はどう管理しているか（Excel／紙／既存システム名）</div><div class="q-why">移行データの有無・移行方式に影響</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q11</div><div class="q-body"><div class="q-text"><span class="badge badge-low">任意</span>「RPM」的な既存サービスを見た上で、特に気に入っている機能・画面はあるか</div><div class="q-why">UI/UX方針の参考にする</div></div><div class="q-answer">（回答欄）</div></div>
+  </div>
+
+  <div class="section">
+    <h2>5. レポート・権限・セキュリティ</h2>
+    <div class="q-row"><div class="q-num">Q12</div><div class="q-body"><div class="q-text"><span class="badge badge-mid">推奨</span>媒体別の反響数・来店率・成約率等をダッシュボードで見たいか（媒体ごとの費用対効果の把握）</div><div class="q-why">レポーティング機能の要否・集計項目の確定</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q13</div><div class="q-body"><div class="q-text"><span class="badge badge-mid">推奨</span>閲覧・編集権限の範囲（店長のみ／本社／全営業）はどう分けたいか</div><div class="q-why">権限設計・画面仕様に影響</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q14</div><div class="q-body"><div class="q-text"><span class="badge badge-high">必須</span>個人情報（氏名・電話番号等）の保管期間・取り扱いルールに社内規定はあるか</div><div class="q-why">セキュリティ設計書・個人情報保護方針に必須</div></div><div class="q-answer">（回答欄）</div></div>
+  </div>
+
+</div>
+</body>
+</html>

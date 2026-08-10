@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>①スマホアプリ ヒアリングシート - ツチヤ自動車</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', sans-serif; background: #f0f2f5; color: #1a1a2e; }
+  .page { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
+  h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  h2 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; padding-left: 12px; border-left: 4px solid #7c83fd; }
+  .meta { font-size: 12px; color: #999; margin-bottom: 28px; display:flex; gap:16px; }
+  .lead { font-size: 13px; color: #555; line-height:1.7; margin-bottom: 24px; background:#fff; border-radius:12px; padding:16px 20px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .section { background: #fff; border-radius: 12px; padding: 22px 24px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .badge { display:inline-block; border-radius:10px; padding:1px 8px; font-size:10px; font-weight:700; color:#fff; margin-right:6px; vertical-align:middle; }
+  .badge-high { background:#ad1457; }
+  .badge-mid  { background:#1565c0; }
+  .badge-low  { background:#888; }
+  .q-row { display:flex; gap:16px; padding:14px 0; border-bottom:1px solid #eee; align-items:flex-start; }
+  .q-row:last-child { border-bottom:none; }
+  .q-num { width:34px; flex-shrink:0; font-weight:700; color:#7c83fd; font-size:13px; padding-top:1px; }
+  .q-body { flex:1; }
+  .q-text { font-size:13px; font-weight:600; margin-bottom:4px; }
+  .q-why { font-size:11px; color:#888; }
+  .q-answer { width:220px; flex-shrink:0; border:1px dashed #ccc; border-radius:6px; padding:8px 10px; font-size:11px; color:#aaa; background:#fafafa; }
+</style>
+</head>
+<body>
+
+<!-- Global Nav -->
+<div style="background:#1a1a2e;height:40px;display:flex;align-items:center;padding:0 20px;gap:24px;font-size:12px;overflow-x:auto;">
+  <span style="color:#7c83fd;font-weight:700;letter-spacing:0.5px;white-space:nowrap;">ツチヤ自動車 設計ドキュメント</span>
+  <a href="index.html"            style="color:#aaa;text-decoration:none;opacity:.7;white-space:nowrap;">🏠 プロジェクト概要</a>
+  <a href="hearing-app.html"      style="color:#fff;text-decoration:none;border-bottom:2px solid #7c83fd;padding-bottom:2px;white-space:nowrap;">📱 ①アプリ ヒアリング</a>
+  <a href="hearing-inquiry.html"  style="color:#aaa;text-decoration:none;opacity:.7;white-space:nowrap;">📥 ②反響集約 ヒアリング</a>
+  <a href="hearing-followup.html" style="color:#aaa;text-decoration:none;opacity:.7;white-space:nowrap;">🤝 ③顧客フォロー ヒアリング</a>
+</div>
+
+<div class="page">
+  <h1>①スマホアプリ ヒアリングシート</h1>
+  <div class="meta">
+    <span>v0.1</span>
+    <span>2026-08-10</span>
+    <span>対象：オートバックス型スマホアプリ</span>
+  </div>
+
+  <div class="lead">
+    <span class="badge badge-high">必須確認</span><span class="badge badge-mid">推奨確認</span><span class="badge badge-low">任意</span>
+    クライアントへの確認前提のドラフト。回答欄はヒアリング後に追記し、確定した項目を要件定義書へ反映する。
+  </div>
+
+  <div class="section">
+    <h2>1. 目的・対象ユーザー</h2>
+    <div class="q-row"><div class="q-num">Q1</div><div class="q-body"><div class="q-text"><span class="badge badge-high">必須</span>アプリの主目的は何か（既存会員のエンゲージメント強化／来店促進／新規顧客獲得／その他）</div><div class="q-why">機能の優先順位とKPI設計に直結する</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q2</div><div class="q-body"><div class="q-text"><span class="badge badge-high">必須</span>対象ユーザーは既存会員のみか、新規見込み客も含むか</div><div class="q-why">ログイン必須にするか、非会員でも一部機能を使えるかが変わる</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q3</div><div class="q-body"><div class="q-text"><span class="badge badge-low">任意</span>オートバックス以外に参考にしたいアプリ・機能はあるか</div><div class="q-why">UI/UX方針の擦り合わせ</div></div><div class="q-answer">（回答欄）</div></div>
+  </div>
+
+  <div class="section">
+    <h2>2. 機能範囲</h2>
+    <div class="q-row"><div class="q-num">Q4</div><div class="q-body"><div class="q-text"><span class="badge badge-high">必須</span>デジタル会員証機能は必要か（会員番号・QRコード提示等）</div><div class="q-why">既存の会員管理データとの連携要否に影響</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q5</div><div class="q-body"><div class="q-text"><span class="badge badge-high">必須</span>車検・点検・整備・買取査定の来店予約機能は必要か。店舗ごとの空き状況管理まで必要か</div><div class="q-why">店舗側の予約管理システムとの連携有無に影響</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q6</div><div class="q-body"><div class="q-text"><span class="badge badge-mid">推奨</span>クーポン配信・プッシュ通知機能は必要か。配信対象の絞り込み（店舗別・車種別等）は必要か</div><div class="q-why">配信管理の運用体制・管理画面要否に影響</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q7</div><div class="q-body"><div class="q-text"><span class="badge badge-low">任意</span>洗車チケット・回数券のデジタル管理機能は必要か</div><div class="q-why">既存の洗車機/店舗運用との連携要否</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q8</div><div class="q-body"><div class="q-text"><span class="badge badge-mid">推奨</span>中古車在庫検索機能をアプリに含めるか（サイトへの誘導のみで良いか）</div><div class="q-why">在庫データ（在庫システム/自社サイト）との連携要否</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q9</div><div class="q-body"><div class="q-text"><span class="badge badge-low">任意</span>自動車保険の更新案内・ロードサービス連絡機能は必要か</div><div class="q-why">保険代理店業務との連携範囲</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q10</div><div class="q-body"><div class="q-text"><span class="badge badge-mid">推奨</span>LINEログイン・LINE通知連携は必要か</div><div class="q-why">認証方式・通知チャネルの設計に影響</div></div><div class="q-answer">（回答欄）</div></div>
+  </div>
+
+  <div class="section">
+    <h2>3. 店舗・組織</h2>
+    <div class="q-row"><div class="q-num">Q11</div><div class="q-body"><div class="q-text"><span class="badge badge-high">必須</span>7店舗共通の1アプリか、店舗ごとに表示・機能を分けるか</div><div class="q-why">店舗選択UIとデータ構造（店舗マスタ）の設計に影響</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q12</div><div class="q-body"><div class="q-text"><span class="badge badge-mid">推奨</span>予約や問い合わせが入った際、店舗側は何で受け取るか（管理画面／メール／既存システム通知）</div><div class="q-why">店舗側運用フローとの整合性確認</div></div><div class="q-answer">（回答欄）</div></div>
+  </div>
+
+  <div class="section">
+    <h2>4. 技術・運用</h2>
+    <div class="q-row"><div class="q-num">Q13</div><div class="q-body"><div class="q-text"><span class="badge badge-high">必須</span>iOS・Android両方をリリースするか。希望リリース時期はあるか</div><div class="q-why">開発体制・スケジュールの前提</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q14</div><div class="q-body"><div class="q-text"><span class="badge badge-high">必須</span>既存の会員管理・販売管理（POS/DMS等）システムは何を使っているか。連携が必要か</div><div class="q-why">②③のシステムとのデータ連携範囲にも関わる</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q15</div><div class="q-body"><div class="q-text"><span class="badge badge-mid">推奨</span>リリース後の運用（クーポン配信・お知らせ更新等）は誰が担当するか。オービットへの継続保守委託を想定するか</div><div class="q-why">管理画面の使いやすさ・権限設計に影響</div></div><div class="q-answer">（回答欄）</div></div>
+  </div>
+
+  <div class="section">
+    <h2>5. 予算・スケジュール・KPI</h2>
+    <div class="q-row"><div class="q-num">Q16</div><div class="q-body"><div class="q-text"><span class="badge badge-high">必須</span>予算感・優先度（他2システムとの兼ね合い）</div><div class="q-why">開発フェーズ分けの判断材料</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q17</div><div class="q-body"><div class="q-text"><span class="badge badge-low">任意</span>効果測定したいKPI（アプリ経由の来店数・予約数等）はあるか</div><div class="q-why">アクセス解析・計測タグ設計に影響</div></div><div class="q-answer">（回答欄）</div></div>
+  </div>
+
+</div>
+</body>
+</html>

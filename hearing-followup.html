@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>③顧客フォローシステム ヒアリングシート - ツチヤ自動車</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', sans-serif; background: #f0f2f5; color: #1a1a2e; }
+  .page { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
+  h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  h2 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; padding-left: 12px; border-left: 4px solid #7c83fd; }
+  .meta { font-size: 12px; color: #999; margin-bottom: 28px; display:flex; gap:16px; }
+  .lead { font-size: 13px; color: #555; line-height:1.7; margin-bottom: 24px; background:#fff; border-radius:12px; padding:16px 20px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .section { background: #fff; border-radius: 12px; padding: 22px 24px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .badge { display:inline-block; border-radius:10px; padding:1px 8px; font-size:10px; font-weight:700; color:#fff; margin-right:6px; vertical-align:middle; }
+  .badge-high { background:#ad1457; }
+  .badge-mid  { background:#1565c0; }
+  .badge-low  { background:#888; }
+  .q-row { display:flex; gap:16px; padding:14px 0; border-bottom:1px solid #eee; align-items:flex-start; }
+  .q-row:last-child { border-bottom:none; }
+  .q-num { width:34px; flex-shrink:0; font-weight:700; color:#7c83fd; font-size:13px; padding-top:1px; }
+  .q-body { flex:1; }
+  .q-text { font-size:13px; font-weight:600; margin-bottom:4px; }
+  .q-why { font-size:11px; color:#888; }
+  .q-answer { width:220px; flex-shrink:0; border:1px dashed #ccc; border-radius:6px; padding:8px 10px; font-size:11px; color:#aaa; background:#fafafa; }
+  .event-grid { display:flex; flex-wrap:wrap; gap:8px; margin: 8px 0 16px; }
+  .event-chip { background:#f0f2f5; border-radius:8px; padding:6px 12px; font-size:12px; color:#555; }
+</style>
+</head>
+<body>
+
+<!-- Global Nav -->
+<div style="background:#1a1a2e;height:40px;display:flex;align-items:center;padding:0 20px;gap:24px;font-size:12px;overflow-x:auto;">
+  <span style="color:#7c83fd;font-weight:700;letter-spacing:0.5px;white-space:nowrap;">ツチヤ自動車 設計ドキュメント</span>
+  <a href="index.html"            style="color:#aaa;text-decoration:none;opacity:.7;white-space:nowrap;">🏠 プロジェクト概要</a>
+  <a href="hearing-app.html"      style="color:#aaa;text-decoration:none;opacity:.7;white-space:nowrap;">📱 ①アプリ ヒアリング</a>
+  <a href="hearing-inquiry.html"  style="color:#aaa;text-decoration:none;opacity:.7;white-space:nowrap;">📥 ②反響集約 ヒアリング</a>
+  <a href="hearing-followup.html" style="color:#fff;text-decoration:none;border-bottom:2px solid #7c83fd;padding-bottom:2px;white-space:nowrap;">🤝 ③顧客フォロー ヒアリング</a>
+</div>
+
+<div class="page">
+  <h1>③顧客フォローシステム ヒアリングシート</h1>
+  <div class="meta">
+    <span>v0.1</span>
+    <span>2026-08-10</span>
+    <span>対象：成約後の顧客フォロー（参考イメージ：スタッフナビゲーター）</span>
+  </div>
+
+  <div class="lead">
+    <span class="badge badge-high">必須確認</span><span class="badge badge-mid">推奨確認</span><span class="badge badge-low">任意</span>
+    「スタッフナビゲーター」は機能イメージの参考例であり、実システムとの連携は前提としない（[[project_tsuchiya_car]]で確認済み）。以下はゼロから構築する前提でのヒアリング項目。
+  </div>
+
+  <div class="section">
+    <h2>1. フォロー対象イベント・タイミング</h2>
+    <div class="event-grid">
+      <span class="event-chip">納車後お礼連絡</span>
+      <span class="event-chip">法定点検案内</span>
+      <span class="event-chip">車検案内</span>
+      <span class="event-chip">自動車保険更新案内</span>
+      <span class="event-chip">季節点検・オイル交換案内</span>
+      <span class="event-chip">誕生日・記念日</span>
+    </div>
+    <div class="q-row"><div class="q-num">Q1</div><div class="q-body"><div class="q-text"><span class="badge badge-high">必須</span>上記イベントのうち、フォロー対象としたいものはどれか。他に追加したいイベントはあるか</div><div class="q-why">リマインド生成ロジックの対象イベントを確定する</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q2</div><div class="q-body"><div class="q-text"><span class="badge badge-high">必須</span>各イベントについて、いつ（何ヶ月前・何日前）連絡したいか</div><div class="q-why">通知スケジュール設計に必須</div></div><div class="q-answer">（回答欄）</div></div>
+  </div>
+
+  <div class="section">
+    <h2>2. フォロー手段</h2>
+    <div class="q-row"><div class="q-num">Q3</div><div class="q-body"><div class="q-text"><span class="badge badge-high">必須</span>フォロー手段として使いたいチャネルは何か（電話／はがき・DM／SMS／LINE／メール）</div><div class="q-why">外部連携仕様書（郵送/SMS/LINE配信API等）の要否に影響</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q4</div><div class="q-body"><div class="q-text"><span class="badge badge-mid">推奨</span>担当営業からの個別フォロー（電話・訪問等）と、システムからの自動配信、どちらを主体にしたいか</div><div class="q-why">担当者向けタスク管理機能の要否に影響</div></div><div class="q-answer">（回答欄）</div></div>
+  </div>
+
+  <div class="section">
+    <h2>3. データ連携・担当管理</h2>
+    <div class="q-row"><div class="q-num">Q5</div><div class="q-body"><div class="q-text"><span class="badge badge-high">必須</span>顧客情報・契約情報（車検証情報、保険契約情報等）は現在どこで管理しているか（既存の販売管理システム名、Excel等）</div><div class="q-why">②反響集約システムとのデータ連携範囲にも関わる、データ移行方式の前提</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q6</div><div class="q-body"><div class="q-text"><span class="badge badge-mid">推奨</span>担当営業と顧客の紐付けはどう管理したいか。担当者が異動・退職した場合の引き継ぎルールはあるか</div><div class="q-why">担当変更時のデータ整合性の設計に影響</div></div><div class="q-answer">（回答欄）</div></div>
+  </div>
+
+  <div class="section">
+    <h2>4. 効果測定・付加機能</h2>
+    <div class="q-row"><div class="q-num">Q7</div><div class="q-body"><div class="q-text"><span class="badge badge-low">任意</span>満足度調査・アンケート機能は必要か</div><div class="q-why">アンケート配信・集計機能の要否</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q8</div><div class="q-body"><div class="q-text"><span class="badge badge-low">任意</span>紹介キャンペーン（友人紹介で特典等）の管理機能は必要か</div><div class="q-why">紹介トラッキング機能の要否</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q9</div><div class="q-body"><div class="q-text"><span class="badge badge-mid">推奨</span>効果測定したいKPI（フォロー実施率・再来店率・車検/点検の再入庫率・紹介件数等）はあるか</div><div class="q-why">レポーティング機能の集計項目の確定</div></div><div class="q-answer">（回答欄）</div></div>
+  </div>
+
+  <div class="section">
+    <h2>5. 既存運用・移行</h2>
+    <div class="q-row"><div class="q-num">Q10</div><div class="q-body"><div class="q-text"><span class="badge badge-high">必須</span>現在、成約後フォローはどう運用しているか（紙／Excel／既存システム名）</div><div class="q-why">移行データの有無・移行方式に影響</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q11</div><div class="q-body"><div class="q-text"><span class="badge badge-low">任意</span>「スタッフナビゲーター」的な既存サービスを見た上で、特に気に入っている機能はあるか</div><div class="q-why">UI/UX方針の参考にする</div></div><div class="q-answer">（回答欄）</div></div>
+  </div>
+
+</div>
+</body>
+</html>
