@@ -74,8 +74,18 @@
 
   <div class="section">
     <h2>3. データ連携・担当管理</h2>
-    <div class="q-row"><div class="q-num">Q5</div><div class="q-body"><div class="q-text"><span class="badge badge-high">必須</span>顧客情報・契約情報（車検証情報、保険契約情報等）は現在どこで管理しているか（既存の販売管理システム名、Excel等）</div><div class="q-why">②反響集約システムとのデータ連携範囲にも関わる、データ移行方式の前提</div></div><div class="q-answer">（回答欄）</div></div>
-    <div class="q-row"><div class="q-num">Q6</div><div class="q-body"><div class="q-text"><span class="badge badge-mid">推奨</span>担当営業と顧客の紐付けはどう管理したいか。担当者が異動・退職した場合の引き継ぎルールはあるか</div><div class="q-why">担当変更時のデータ整合性の設計に影響</div></div><div class="q-answer">（回答欄）</div></div>
+    <div style="display:flex; gap:12px; margin:4px 0 18px;">
+      <div style="flex:1; border:1px solid #eee; border-radius:8px; padding:12px 14px;">
+        <div style="font-size:11px; font-weight:700; color:#7c83fd; margin-bottom:4px;">パターンA：本システムで新規構築</div>
+        <div style="font-size:12px; color:#666; line-height:1.6;">顧客・契約情報や担当紐付けを本システム側で新たにマスタとして持つ。既存Excel等からの初期データ移行のみ発生し、以後は本システムが正データになる。</div>
+      </div>
+      <div style="flex:1; border:1px solid #eee; border-radius:8px; padding:12px 14px;">
+        <div style="font-size:11px; font-weight:700; color:#7c83fd; margin-bottom:4px;">パターンB：既存システムに吸収</div>
+        <div style="font-size:12px; color:#666; line-height:1.6;">既存の販売管理システム等を正データ（マスタ）のまま維持し、本システムはそこをAPI/連携で参照するだけにする。既存システム側のデータ提供可否（API有無・DB直接接続可否）が前提条件になる。</div>
+      </div>
+    </div>
+    <div class="q-row"><div class="q-num">Q5</div><div class="q-body"><div class="q-text"><span class="badge badge-high">必須</span>顧客情報・契約情報（車検証情報、保険契約情報等）は、パターンA（本システムで新規に持つ）とパターンB（既存システムを参照・連携する）のどちらが良いか。現在どこで管理しているか（既存の販売管理システム名、Excel等）も併せて確認</div><div class="q-why">マスタをどちらに置くかでアーキテクチャ・②反響集約システムとの連携範囲・データ移行方式が大きく変わる最重要ポイント。パターンBを選ぶ場合は既存システムのAPI/データ提供可否の確認が必須</div></div><div class="q-answer">（回答欄）</div></div>
+    <div class="q-row"><div class="q-num">Q6</div><div class="q-body"><div class="q-text"><span class="badge badge-high">必須</span>担当営業と顧客の紐付けも同様に、パターンA（本システムで担当マスタを持つ）とパターンB（既存の人事/販売管理システムの担当情報を参照する）のどちらが良いか。担当者が異動・退職した場合の引き継ぎルールはあるか</div><div class="q-why">担当変更時のデータ整合性の設計に影響。既存の人事システム等がある場合はそちらをマスタにする方が運用上自然なことが多い</div></div><div class="q-answer">（回答欄）</div></div>
   </div>
 
   <div class="section">
