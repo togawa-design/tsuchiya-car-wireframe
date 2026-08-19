@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>①アプリ×基幹系 連携機能一覧 - ツチヤ自動車</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', sans-serif; background: #f0f2f5; color: #1a1a2e; }
+  .page { max-width: 1200px; margin: 0 auto; padding: 32px 24px; }
+  h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  h2 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; padding-left: 12px; border-left: 4px solid #7c83fd; }
+  h3 { font-size: 13px; font-weight: 700; color: #444; margin-bottom: 8px; }
+  .meta { font-size: 12px; color: #999; margin-bottom: 20px; display:flex; gap:16px; }
+  .lead { font-size: 13px; color: #555; line-height:1.7; margin-bottom: 24px; background:#fff; border-radius:12px; padding:16px 20px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .section { background: #fff; border-radius: 12px; padding: 22px 24px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .warn-box { background:#fff8e1; border:1px solid #ffcc80; border-radius:8px; padding:10px 14px; font-size:12px; color:#e65100; margin-top:10px; }
+
+  /* Architecture-style diagram */
+  .arch-diagram { background:#0f172a; border-radius:12px; padding:28px 24px; font-family:'SF Mono','Menlo',monospace; font-size:12px; line-height:1.8; overflow-x:auto; margin-bottom:8px; }
+  .arch-layer { margin-bottom:16px; }
+  .arch-layer-label { font-size:10px; font-weight:700; letter-spacing:1px; margin-bottom:8px; }
+  .arch-boxes { display:flex; gap:10px; flex-wrap:wrap; }
+  .arch-box { border-radius:8px; padding:10px 14px; font-size:11px; font-weight:700; white-space:nowrap; display:flex; flex-direction:column; gap:3px; min-width:150px; }
+  .arch-box-sub { font-size:10px; font-weight:400; opacity:.8; }
+  .arch-arrow { color:#4b5563; font-size:18px; display:flex; align-items:center; justify-content:center; padding:4px 0; gap:8px; }
+  .arch-arrow-note { color:#94a3b8; font-size:10px; font-family:-apple-system,sans-serif; }
+  .layer-app    { background:#1e3a5f; border:1px solid #2563eb; }
+  .layer-core   { background:#3b1f1a; border:1.5px dashed #ef4444; }
+  .layer-standalone { background:#2d2d2d; border:1px solid #6b7280; }
+  .arch-label-app  { color:#93c5fd; }
+  .arch-label-core { color:#fca5a5; }
+  .arch-label-standalone { color:#d1d5db; }
+  .arch-box-text { color:#e2e8f0; }
+
+  .badge { display:inline-block; border-radius:10px; padding:2px 10px; font-size:11px; font-weight:700; color:#fff; white-space:nowrap; }
+  .badge-must  { background:#ad1457; }
+  .badge-check { background:#1565c0; }
+  .badge-none  { background:#9e9e9e; }
+  table { width:100%; border-collapse: collapse; font-size:12.5px; }
+  th { text-align:left; font-size:11px; color:#888; padding:8px 10px; border-bottom:2px solid #eee; white-space:nowrap; }
+  td { padding:9px 10px; border-bottom:1px solid #f2f2f2; vertical-align:top; }
+  tr.cat-row td { background:#f7f7fd; font-weight:700; color:#7c83fd; font-size:11px; padding:6px 10px; }
+  .desc { color:#666; font-size:11.5px; line-height:1.5; }
+  .dir { font-size:11px; color:#555; }
+</style>
+</head>
+<body>
+
+<!-- Global Nav -->
+<div style="background:#1a1a2e;height:40px;display:flex;align-items:center;padding:0 20px;gap:24px;font-size:12px;overflow-x:auto;">
+  <span style="color:#7c83fd;font-weight:700;letter-spacing:0.5px;white-space:nowrap;">ツチヤ自動車 設計ドキュメント</span>
+  <a href="index.html"              style="color:#aaa;text-decoration:none;opacity:.7;white-space:nowrap;">🏠 プロジェクト概要</a>
+  <a href="hearing-app.html"        style="color:#aaa;text-decoration:none;opacity:.7;white-space:nowrap;">📱 ①アプリ ヒアリング</a>
+  <a href="screen-list.html"        style="color:#aaa;text-decoration:none;opacity:.7;white-space:nowrap;">📃 ①アプリ 画面一覧</a>
+  <a href="integration-points.html" style="color:#fff;text-decoration:none;border-bottom:2px solid #7c83fd;padding-bottom:2px;white-space:nowrap;">🔌 基幹系連携機能一覧</a>
+  <a href="hearing-inquiry.html"    style="color:#aaa;text-decoration:none;opacity:.7;white-space:nowrap;">📥 ②反響集約 ヒアリング</a>
+  <a href="hearing-followup.html"   style="color:#aaa;text-decoration:none;opacity:.7;white-space:nowrap;">🤝 ③顧客フォロー ヒアリング</a>
+</div>
+
+<div class="page">
+  <h1>①アプリ × 基幹系システム 連携機能一覧</h1>
+  <div class="meta">
+    <span>v0.1</span>
+    <span>2026-08-19</span>
+    <span>前提：基幹系（会員・車両・予約・クーポン等のデータ管理）は別会社が担当する想定</span>
+  </div>
+
+  <div class="lead">
+    基幹系システムを別会社が構築する前提のため、①アプリ側で必要な「基幹系から取得する／基幹系へ送信するデータ」の境界をここで明確にする。screen-list.htmlの画面一覧のうち、アプリ単体で完結せず基幹系側のデータ・処理を必要とする機能を洗い出した。この一覧をベースに、基幹系ベンダーとの間でAPI/連携方式（REST・Webhook・ファイル連携等）を協議する想定。
+  </div>
+
+  <div class="section">
+    <h2>連携イメージ図</h2>
+    <div class="arch-diagram">
+      <div style="color:#94a3b8;font-size:11px;font-weight:700;letter-spacing:1px;margin-bottom:20px;">①アプリ ⇄ 基幹系システム 連携イメージ</div>
+
+      <div class="arch-layer">
+        <div class="arch-layer-label arch-label-app">── ①スマホアプリ（Orbit担当）───────────</div>
+        <div class="arch-boxes">
+          <div class="arch-box layer-app"><span class="arch-box-text">🔑 会員・認証</span><span class="arch-box-sub">ログイン/会員情報/会員証</span></div>
+          <div class="arch-box layer-app"><span class="arch-box-text">🚗 車両・整備管理</span><span class="arch-box-sub">車両登録/車検/メンテ履歴</span></div>
+          <div class="arch-box layer-app"><span class="arch-box-text">📅 予約</span><span class="arch-box-sub">作業/車検/買取査定予約</span></div>
+          <div class="arch-box layer-app"><span class="arch-box-text">🎫 クーポン</span><span class="arch-box-sub">一覧/詳細/使用消化</span></div>
+          <div class="arch-box layer-app"><span class="arch-box-text">✅ 来店・ポイント</span><span class="arch-box-sub">チェックイン/付与</span></div>
+          <div class="arch-box layer-app"><span class="arch-box-text">🏬 店舗情報</span><span class="arch-box-sub">検索/詳細</span></div>
+          <div class="arch-box layer-app"><span class="arch-box-text">🧾 履歴・問い合わせ</span><span class="arch-box-sub">購入履歴/問い合わせ</span></div>
+        </div>
+      </div>
+
+      <div class="arch-arrow">↕ <span class="arch-arrow-note">API / Webhook 等（方式は基幹系ベンダーと協議・未確定）</span></div>
+
+      <div class="arch-layer">
+        <div class="arch-layer-label arch-label-core">── 基幹系システム（他社ベンダー担当・仕様未確定）───</div>
+        <div class="arch-boxes">
+          <div class="arch-box layer-core"><span class="arch-box-text">👤 会員マスタ</span><span class="arch-box-sub">ランク/ポイント管理 ※要確認</span></div>
+          <div class="arch-box layer-core"><span class="arch-box-text">🔧 車両・車検・整備履歴DB</span></div>
+          <div class="arch-box layer-core"><span class="arch-box-text">🗓️ 予約・空き状況管理</span></div>
+          <div class="arch-box layer-core"><span class="arch-box-text">🎟️ クーポン発行・消化管理</span></div>
+          <div class="arch-box layer-core"><span class="arch-box-text">📍 来店履歴・ポイント付与ロジック</span></div>
+          <div class="arch-box layer-core"><span class="arch-box-text">🏪 店舗マスタ</span></div>
+          <div class="arch-box layer-core"><span class="arch-box-text">🧾 購入・問い合わせ履歴管理</span></div>
+        </div>
+      </div>
+
+      <div class="arch-layer" style="margin-top:20px;">
+        <div class="arch-layer-label arch-label-standalone">── アプリ単体で完結（基幹系連携不要）─────</div>
+        <div class="arch-boxes">
+          <div class="arch-box layer-standalone"><span class="arch-box-text">📘 オンボーディング</span></div>
+          <div class="arch-box layer-standalone"><span class="arch-box-text">☰ サイドメニュー</span></div>
+          <div class="arch-box layer-standalone"><span class="arch-box-text">❓ FAQ / プラポリ</span></div>
+          <div class="arch-box layer-standalone"><span class="arch-box-text">🚪 ログアウト</span></div>
+          <div class="arch-box layer-standalone" style="border-style:dashed;opacity:.7;"><span class="arch-box-text">📰 お知らせ/トピック/キャンペーン</span><span class="arch-box-sub">軽量CMSで良いか要確認</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="warn-box">基幹系ベンダーが確定していないため、連携方式（リアルタイムAPI／夜間バッチでのファイル連携／Webhook等）は未定。方式によって①アプリ側の開発工数・体感速度（即時反映かどうか）が変わるため、基幹系ベンダー選定後に早めに確認したい。</div>
+  </div>
+
+  <div class="section">
+    <h2>連携機能一覧</h2>
+    <div style="overflow-x:auto;">
+    <table>
+      <tr><th>分類</th><th>機能（画面）</th><th>基幹系から見た連携内容</th><th>方向</th><th>連携要否</th></tr>
+
+      <tr class="cat-row"><td colspan="5">🔑 会員・認証</td></tr>
+      <tr><td></td><td>ログイン / 新規会員登録</td><td class="desc">会員IDでの認証、新規会員レコード作成</td><td class="dir">取得＋更新</td><td><span class="badge badge-must">必須</span></td></tr>
+      <tr><td></td><td>会員情報変更 / メールアドレス・パスワード変更 / 退会</td><td class="desc">会員マスタの更新・削除（論理削除）</td><td class="dir">更新</td><td><span class="badge badge-must">必須</span></td></tr>
+      <tr><td></td><td>会員証TOP（ランク・ポイント表示）</td><td class="desc">会員ランク・ポイント残高の取得</td><td class="dir">取得</td><td><span class="badge badge-check">要検討</span><div class="desc">ランク/ポイント制度の有無に依存</div></td></tr>
+
+      <tr class="cat-row"><td colspan="5">🚗 車両・整備管理</td></tr>
+      <tr><td></td><td>車両情報 / 新規車両登録 / 車検証QR読み取り</td><td class="desc">車両マスタの取得・新規登録</td><td class="dir">取得＋更新</td><td><span class="badge badge-must">必須</span></td></tr>
+      <tr><td></td><td>車のカルテTOP / 車検詳細 / メンテナンス詳細 / 点検結果</td><td class="desc">車検・整備・点検履歴の取得</td><td class="dir">取得</td><td><span class="badge badge-must">必須</span></td></tr>
+      <tr><td></td><td>車両適合情報（タイヤ/オイル/バッテリー）</td><td class="desc">適合部品マスタの取得</td><td class="dir">取得</td><td><span class="badge badge-check">要検討</span><div class="desc">対応する整備・物販メニューの有無</div></td></tr>
+      <tr><td></td><td>車検基本費用シミュレーション</td><td class="desc">車両情報＋料金マスタを元に費用算出</td><td class="dir">取得</td><td><span class="badge badge-check">要検討</span></td></tr>
+
+      <tr class="cat-row"><td colspan="5">📅 予約</td></tr>
+      <tr><td></td><td>作業予約 / 車検予約 / 車買取査定予約</td><td class="desc">店舗の予約可能日時取得、予約レコード作成</td><td class="dir">取得＋更新</td><td><span class="badge badge-must">必須</span></td></tr>
+      <tr><td></td><td>予約確認（一覧・変更・取消）</td><td class="desc">予約レコードの取得・更新・削除</td><td class="dir">取得＋更新</td><td><span class="badge badge-must">必須</span></td></tr>
+
+      <tr class="cat-row"><td colspan="5">🎫 クーポン・キャンペーン</td></tr>
+      <tr><td></td><td>クーポン一覧 / 詳細</td><td class="desc">発行中クーポンの取得</td><td class="dir">取得</td><td><span class="badge badge-must">必須</span></td></tr>
+      <tr><td></td><td>クーポン使用（バーコード提示後の消化）</td><td class="desc">クーポン利用済みフラグの更新</td><td class="dir">更新</td><td><span class="badge badge-must">必須</span></td></tr>
+
+      <tr class="cat-row"><td colspan="5">✅ 来店・ポイント</td></tr>
+      <tr><td></td><td>来店チェックイン</td><td class="desc">来店履歴の記録、ポイント付与処理</td><td class="dir">更新</td><td><span class="badge badge-check">要検討</span><div class="desc">ポイント付与ルールの有無</div></td></tr>
+
+      <tr class="cat-row"><td colspan="5">🏬 店舗情報</td></tr>
+      <tr><td></td><td>店舗検索TOP / 都道府県別店舗一覧 / 店舗詳細</td><td class="desc">店舗マスタ（営業時間・作業項目等）の取得</td><td class="dir">取得</td><td><span class="badge badge-must">必須</span><div class="desc">7店舗のみのため更新頻度は低い想定</div></td></tr>
+
+      <tr class="cat-row"><td colspan="5">🧾 履歴・問い合わせ</td></tr>
+      <tr><td></td><td>購入履歴</td><td class="desc">購入・整備の履歴取得</td><td class="dir">取得</td><td><span class="badge badge-must">必須</span></td></tr>
+      <tr><td></td><td>お問い合わせ</td><td class="desc">問い合わせ内容の送信・管理</td><td class="dir">更新</td><td><span class="badge badge-check">要検討</span><div class="desc">②反響集約システムに統合する方が自然な可能性あり</div></td></tr>
+
+      <tr class="cat-row"><td colspan="5">📗 アプリ単体で完結（連携不要）</td></tr>
+      <tr><td></td><td>オンボーディング / サイドメニュー / FAQ / プラポリ / ログアウト</td><td class="desc">静的コンテンツ・画面遷移・セッション処理のみ</td><td class="dir">なし</td><td><span class="badge badge-none">対象外</span></td></tr>
+      <tr><td></td><td>お知らせ / トピック / キャンペーン</td><td class="desc">基幹系ではなく軽量CMSで配信管理する方が一般的</td><td class="dir">要確認</td><td><span class="badge badge-check">要検討</span></td></tr>
+
+    </table>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

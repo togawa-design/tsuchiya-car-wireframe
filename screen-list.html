@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>①アプリ 画面一覧 - ツチヤ自動車</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', sans-serif; background: #f0f2f5; color: #1a1a2e; }
+  .page { max-width: 1200px; margin: 0 auto; padding: 32px 24px; }
+  h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  h2 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; padding-left: 12px; border-left: 4px solid #7c83fd; }
+  .meta { font-size: 12px; color: #999; margin-bottom: 20px; display:flex; gap:16px; }
+  .lead { font-size: 13px; color: #555; line-height:1.7; margin-bottom: 24px; background:#fff; border-radius:12px; padding:16px 20px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .section { background: #fff; border-radius: 12px; padding: 22px 24px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .badge { display:inline-block; border-radius:10px; padding:2px 10px; font-size:11px; font-weight:700; color:#fff; white-space:nowrap; }
+  .badge-apply { background:#2e7d32; }
+  .badge-check { background:#1565c0; }
+  .badge-na    { background:#9e9e9e; }
+  .summary-grid { display:flex; gap:12px; margin-bottom: 8px; flex-wrap:wrap; }
+  .summary-chip { background:#f0f2f5; border-radius:8px; padding:8px 14px; font-size:12px; color:#555; }
+  .summary-chip b { color:#1a1a2e; font-size:14px; }
+  table { width:100%; border-collapse: collapse; font-size:12.5px; }
+  th { text-align:left; font-size:11px; color:#888; padding:8px 10px; border-bottom:2px solid #eee; white-space:nowrap; }
+  td { padding:9px 10px; border-bottom:1px solid #f2f2f2; vertical-align:top; }
+  tr.cat-row td { background:#f7f7fd; font-weight:700; color:#7c83fd; font-size:11px; padding:6px 10px; }
+  .desc { color:#666; font-size:11.5px; line-height:1.5; }
+  .note { color:#1565c0; font-size:11px; margin-top:2px; }
+  .tier { font-size:10px; color:#aaa; }
+</style>
+</head>
+<body>
+
+<!-- Global Nav -->
+<div style="background:#1a1a2e;height:40px;display:flex;align-items:center;padding:0 20px;gap:24px;font-size:12px;overflow-x:auto;">
+  <span style="color:#7c83fd;font-weight:700;letter-spacing:0.5px;white-space:nowrap;">ツチヤ自動車 設計ドキュメント</span>
+  <a href="index.html"            style="color:#aaa;text-decoration:none;opacity:.7;white-space:nowrap;">🏠 プロジェクト概要</a>
+  <a href="hearing-app.html"      style="color:#aaa;text-decoration:none;opacity:.7;white-space:nowrap;">📱 ①アプリ ヒアリング</a>
+  <a href="screen-list.html"      style="color:#fff;text-decoration:none;border-bottom:2px solid #7c83fd;padding-bottom:2px;white-space:nowrap;">📃 ①アプリ 画面一覧</a>
+  <a href="integration-points.html" style="color:#aaa;text-decoration:none;opacity:.7;white-space:nowrap;">🔌 基幹系連携機能一覧</a>
+  <a href="hearing-inquiry.html"  style="color:#aaa;text-decoration:none;opacity:.7;white-space:nowrap;">📥 ②反響集約 ヒアリング</a>
+  <a href="hearing-followup.html" style="color:#aaa;text-decoration:none;opacity:.7;white-space:nowrap;">🤝 ③顧客フォロー ヒアリング</a>
+</div>
+
+<div class="page">
+  <h1>①アプリ 画面一覧（ページリスト）</h1>
+  <div class="meta">
+    <span>v0.1</span>
+    <span>2026-08-19</span>
+    <span>出典：株式会社プラスニド・デザイン「自動車点検予約アプリ見積り」（46ページ構成）を土台に整理</span>
+  </div>
+
+  <div class="lead">
+    受領したデザイン見積書のページリスト（オートバックス型・全46ページ）は機能網羅性が高いため、①アプリの画面構成はこの分類をそのまま土台にする。各画面にツチヤ自動車での適用可否を仮置きした。
+    <span class="badge badge-apply">適用</span> はそのまま採用、<span class="badge badge-check">要検討</span> はhearing-app.htmlの確認事項待ち、<span class="badge badge-na">対象外</span> はAutoBACKS独自機能でツチヤ自動車には該当しない想定。
+  </div>
+
+  <div class="section">
+    <h2>サマリー</h2>
+    <div class="summary-grid">
+      <div class="summary-chip">元見積の総ページ数　<b>46ページ</b></div>
+      <div class="summary-chip">適用　<b>34</b></div>
+      <div class="summary-chip">要検討　<b>5</b></div>
+      <div class="summary-chip">対象外　<b>7</b></div>
+    </div>
+    <div style="font-size:11px;color:#999;">※対象外の7画面は元見積でも工数計上外（外部サイトへの遷移のみ等）。要検討の5画面は会員ランク／ポイント制度・シミュレーション機能の有無に依存。</div>
+  </div>
+
+  <div class="section">
+    <h2>画面一覧</h2>
+    <div style="overflow-x:auto;">
+    <table>
+      <tr><th>分類</th><th>画面名</th><th>概要</th><th>元工数区分</th><th>ツチヤ自動車での扱い</th></tr>
+
+      <tr class="cat-row"><td colspan="5">初回・認証</td></tr>
+      <tr><td></td><td>初回案内 / オンボーディング</td><td class="desc">アプリのメリット紹介。ログイン/新規会員登録、レシートQR、未登録利用への導線。</td><td class="tier">中</td><td><span class="badge badge-apply">適用</span></td></tr>
+      <tr><td></td><td>ログイン / 新規会員登録</td><td class="desc">会員認証・新規登録の入口。</td><td class="tier">中</td><td><span class="badge badge-apply">適用</span></td></tr>
+
+      <tr class="cat-row"><td colspan="5">ホーム</td></tr>
+      <tr><td></td><td>ホーム / トップ</td><td class="desc">主要導線、バナー、お知らせ、予約、クーポン、シミュレーション等を集約。</td><td class="tier">最大</td><td><span class="badge badge-apply">適用</span></td></tr>
+      <tr><td></td><td>トピック</td><td class="desc">トピック情報一覧。コンテンツ一覧・詳細への遷移。</td><td class="tier">中</td><td><span class="badge badge-apply">適用</span></td></tr>
+      <tr><td></td><td>キャンペーン</td><td class="desc">キャンペーン情報一覧。コンテンツ一覧・詳細への遷移。</td><td class="tier">中</td><td><span class="badge badge-apply">適用</span></td></tr>
+      <tr><td></td><td>通販サイト</td><td class="desc">通販関連コンテンツ・外部ECサイト等への導線。</td><td class="tier">小</td><td><span class="badge badge-na">対象外</span><div class="note">ツチヤ自動車にECサイトがあるか確認</div></td></tr>
+      <tr><td></td><td>お知らせ一覧 / お知らせ詳細</td><td class="desc">アプリ内お知らせ一覧・詳細。0件時の空状態を含む。</td><td class="tier">小</td><td><span class="badge badge-apply">適用</span></td></tr>
+
+      <tr class="cat-row"><td colspan="5">予約</td></tr>
+      <tr><td></td><td>作業予約</td><td class="desc">作業選択、店舗選択、日時選択、予約確定までの予約フロー。</td><td class="tier">最大</td><td><span class="badge badge-apply">適用</span></td></tr>
+      <tr><td></td><td>車検予約</td><td class="desc">店舗・日時・車両等を指定する車検予約フロー。</td><td class="tier">中</td><td><span class="badge badge-apply">適用</span></td></tr>
+      <tr><td></td><td>車買取査定予約</td><td class="desc">店舗・日時等を指定する査定予約フロー。</td><td class="tier">中</td><td><span class="badge badge-apply">適用</span></td></tr>
+      <tr><td></td><td>予約確認</td><td class="desc">既存予約の一覧・詳細・変更・取消等。</td><td class="tier">中</td><td><span class="badge badge-apply">適用</span></td></tr>
+
+      <tr class="cat-row"><td colspan="5">車のカルテ</td></tr>
+      <tr><td></td><td>車のカルテTOP</td><td class="desc">登録車両、車検・オイル・タイヤ等のメンテナンス情報を集約。</td><td class="tier">最大</td><td><span class="badge badge-apply">適用</span></td></tr>
+      <tr><td></td><td>車検詳細</td><td class="desc">車検説明、車両情報、次回車検、前回作業情報等。</td><td class="tier">中</td><td><span class="badge badge-apply">適用</span></td></tr>
+      <tr><td></td><td>メンテナンス詳細（共通）</td><td class="desc">オイル・タイヤ等の説明、交換目安、履歴、購入商品等。</td><td class="tier">中</td><td><span class="badge badge-apply">適用</span></td></tr>
+
+      <tr class="cat-row"><td colspan="5">車両</td></tr>
+      <tr><td></td><td>車両情報</td><td class="desc">車両基本情報、購入/交換履歴、適合情報、新規追加、QR導線。</td><td class="tier">中</td><td><span class="badge badge-apply">適用</span></td></tr>
+      <tr><td></td><td>新規車両登録</td><td class="desc">メーカー・車種を選択して車両登録。</td><td class="tier">大</td><td><span class="badge badge-apply">適用</span></td></tr>
+      <tr><td></td><td>車検証QR読み取り</td><td class="desc">カメラ起動、QR読取、車両情報反映。</td><td class="tier">大</td><td><span class="badge badge-apply">適用</span></td></tr>
+      <tr><td></td><td>車両適合情報</td><td class="desc">タイヤ・オイル・バッテリー適合情報のアコーディオン表示。</td><td class="tier">小</td><td><span class="badge badge-check">要検討</span><div class="note">対応する整備・物販メニューの有無を確認</div></td></tr>
+
+      <tr class="cat-row"><td colspan="5">会員証</td></tr>
+      <tr><td></td><td>会員証TOP</td><td class="desc">会員ランク、バーコード、ポイント、来店日、クーポン導線。</td><td class="tier">大</td><td><span class="badge badge-check">要検討</span><div class="note">会員ランク・ポイント制度の有無（hearing-app Q4）</div></td></tr>
+      <tr><td></td><td>メンテナンスオプション</td><td class="desc">加入状況、サービス説明、点検結果への導線。</td><td class="tier">小</td><td><span class="badge badge-apply">適用</span></td></tr>
+
+      <tr class="cat-row"><td colspan="5">クーポン</td></tr>
+      <tr><td></td><td>クーポン一覧</td><td class="desc">画像、タイトル、有効期間、NEW表示のカード一覧。</td><td class="tier">小</td><td><span class="badge badge-apply">適用</span></td></tr>
+      <tr><td></td><td>クーポン詳細</td><td class="desc">有効期間、回数、店舗、バーコード、注意事項、使用操作。</td><td class="tier">大</td><td><span class="badge badge-apply">適用</span></td></tr>
+
+      <tr class="cat-row"><td colspan="5">チェックイン</td></tr>
+      <tr><td></td><td>来店チェックイン</td><td class="desc">位置/店舗チェックイン、当月履歴、付与ルール表示。</td><td class="tier">中</td><td><span class="badge badge-check">要検討</span><div class="note">来店ポイント付与ルールの有無</div></td></tr>
+
+      <tr class="cat-row"><td colspan="5">店舗</td></tr>
+      <tr><td></td><td>店舗検索TOP</td><td class="desc">現在地検索、地方/都道府県アコーディオン。</td><td class="tier">中</td><td><span class="badge badge-apply">適用</span><div class="note">7店舗のみのため簡易リスト化を想定</div></td></tr>
+      <tr><td></td><td>都道府県別 店舗一覧</td><td class="desc">選択都道府県の店舗一覧。</td><td class="tier">小</td><td><span class="badge badge-apply">適用</span></td></tr>
+      <tr><td></td><td>店舗詳細</td><td class="desc">電話、住所、営業時間、休業日、作業項目、Web、ルート検索。</td><td class="tier">小</td><td><span class="badge badge-apply">適用</span></td></tr>
+
+      <tr class="cat-row"><td colspan="5">マイページ</td></tr>
+      <tr><td></td><td>マイページ</td><td class="desc">各種アカウント・車両・履歴設定の一覧。</td><td class="tier">中</td><td><span class="badge badge-apply">適用</span></td></tr>
+      <tr><td></td><td>会員情報変更</td><td class="desc">氏名・住所等の会員情報変更。</td><td class="tier">小</td><td><span class="badge badge-apply">適用</span></td></tr>
+      <tr><td></td><td>メールアドレス変更 / パスワード変更</td><td class="desc">会員IDのメールアドレス・パスワード変更。</td><td class="tier">最小</td><td><span class="badge badge-apply">適用</span></td></tr>
+      <tr><td></td><td>他社ID連携</td><td class="desc">外部サービスIDとの連携設定。</td><td class="tier">対象外</td><td><span class="badge badge-na">対象外</span></td></tr>
+      <tr><td></td><td>Vポイント・楽天ポイント設定</td><td class="desc">ポイントサービスとの連携・解除。</td><td class="tier">小</td><td><span class="badge badge-na">対象外</span><div class="note">ツチヤ自動車独自のポイント連携があれば要検討に変更</div></td></tr>
+      <tr><td></td><td>車両確認/登録・点検結果・購入履歴</td><td class="desc">車両情報管理、点検結果確認、購入履歴一覧・詳細。</td><td class="tier">小〜中</td><td><span class="badge badge-apply">適用</span></td></tr>
+      <tr><td></td><td>退会</td><td class="desc">確認を経て会員退会を実行。</td><td class="tier">小</td><td><span class="badge badge-apply">適用</span></td></tr>
+
+      <tr class="cat-row"><td colspan="5">会員サービス・シミュレーション</td></tr>
+      <tr><td></td><td>会員サービスについて</td><td class="desc">会員制度・サービス説明。</td><td class="tier">最小</td><td><span class="badge badge-check">要検討</span><div class="note">会員制度の有無に依存</div></td></tr>
+      <tr><td></td><td>車検基本費用シミュレーション</td><td class="desc">登録車両確認から車検基本費用を算出。</td><td class="tier">最大</td><td><span class="badge badge-check">要検討</span><div class="note">工数最大のためリリース優先度は要相談</div></td></tr>
+
+      <tr class="cat-row"><td colspan="5">サイドメニュー・お気に入り</td></tr>
+      <tr><td></td><td>サイドメニュー</td><td class="desc">各主要ページ・外部サイトへのメニューオーバーレイ。</td><td class="tier">中</td><td><span class="badge badge-apply">適用</span></td></tr>
+      <tr><td></td><td>お気に入り</td><td class="desc">お気に入り登録コンテンツの一覧・詳細遷移。</td><td class="tier">中</td><td><span class="badge badge-apply">適用</span></td></tr>
+
+      <tr class="cat-row"><td colspan="5">チラシ・ピットサービス（AutoBACKS独自コンテンツ）</td></tr>
+      <tr><td></td><td>チラシ</td><td class="desc">店舗チラシ等の一覧・詳細表示。外部Webへ遷移。</td><td class="tier">対象外</td><td><span class="badge badge-na">対象外</span></td></tr>
+      <tr><td></td><td>ピットサービスについて</td><td class="desc">各ピットサービス項目を展開し詳細へ遷移。外部Webへ遷移。</td><td class="tier">対象外</td><td><span class="badge badge-na">対象外</span></td></tr>
+
+      <tr class="cat-row"><td colspan="5">外部・補助（AutoBACKS独自の外部リンク）</td></tr>
+      <tr><td></td><td>オートバックスカーズ（クルマ売買）/ 公式通販サイト / Yahoo!ショッピング店 / 楽天市場店</td><td class="desc">各外部Web・ECへ遷移。</td><td class="tier">対象外</td><td><span class="badge badge-na">対象外</span></td></tr>
+
+      <tr class="cat-row"><td colspan="5">その他情報・セキュリティ</td></tr>
+      <tr><td></td><td>FAQ / お問い合わせ / インフォメーション</td><td class="desc">FAQ表示、問い合わせ窓口、各種情報一覧/外部遷移。</td><td class="tier">小</td><td><span class="badge badge-apply">適用</span></td></tr>
+      <tr><td></td><td>株主優待お申し込み</td><td class="desc">株主優待申込への遷移。</td><td class="tier">小</td><td><span class="badge badge-na">対象外</span><div class="note">非上場のため不要</div></td></tr>
+      <tr><td></td><td>ログアウト</td><td class="desc">セッション終了。</td><td class="tier">最小</td><td><span class="badge badge-apply">適用</span></td></tr>
+      <tr><td></td><td>プラポリ</td><td class="desc">個人情報の取り扱いなど（複数タブ想定）。</td><td class="tier">最小</td><td><span class="badge badge-apply">適用</span></td></tr>
+
+    </table>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
